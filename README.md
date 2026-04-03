@@ -28,6 +28,45 @@ Android mobile adaptation of [Voice Stall](https://github.com/ChristianGonper/vo
 4. Go to **Settings** and enter your [Groq API key](https://console.groq.com/)
 5. Enable the floating overlay from the Home screen
 
+## Build an installable APK
+
+For Android Studio step-by-step instructions, see [ANDROID_STUDIO_APK_GUIDE.md](ANDROID_STUDIO_APK_GUIDE.md).
+
+### 1) Debug APK (quick local install)
+
+```bash
+./gradlew assembleDebug
+```
+
+APK output:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+### 2) Release APK (signed, shareable)
+
+1. Create a signing keystore (if you do not have one yet):
+
+   ```bash
+   keytool -genkeypair -v -keystore release.keystore -alias voicestall -keyalg RSA -keysize 2048 -validity 10000
+   ```
+
+2. Copy `keystore.properties.example` to `keystore.properties` in the project root and fill in values.
+3. Build the signed release APK:
+
+   ```bash
+   ./gradlew assembleRelease
+   ```
+
+APK output:
+
+```text
+app/build/outputs/apk/release/app-release.apk
+```
+
+> Note: If `keystore.properties` is missing, the project will still build a release variant signed with the debug key for local testing only.
+
 ## Permissions
 
 - `RECORD_AUDIO` — Microphone access for recording
