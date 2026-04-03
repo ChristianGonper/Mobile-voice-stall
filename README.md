@@ -35,7 +35,7 @@ For Android Studio step-by-step instructions, see [ANDROID_STUDIO_APK_GUIDE.md](
 ### 1) Debug APK (quick local install)
 
 ```bash
-./gradlew assembleDebug
+gradle assembleDebug
 ```
 
 APK output:
@@ -56,7 +56,7 @@ app/build/outputs/apk/debug/app-debug.apk
 3. Build the signed release APK:
 
    ```bash
-   ./gradlew assembleRelease
+   gradle assembleRelease
    ```
 
 APK output:

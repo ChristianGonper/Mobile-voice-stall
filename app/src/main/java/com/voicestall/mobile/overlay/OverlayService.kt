@@ -240,7 +240,7 @@ class OverlayService : Service() {
 
     private fun updateMicIcon(processing: Boolean) {
         overlayView?.findViewById<ImageButton>(R.id.btn_mic)?.apply {
-            setImageResource(if (processing) R.drawable.ic_mic else R.drawable.ic_mic)
+            setImageResource(if (processing) R.drawable.ic_mic_recording else R.drawable.ic_mic)
             alpha = if (processing) 0.5f else 1.0f
         }
     }
