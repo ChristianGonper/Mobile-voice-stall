@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bubble_background"
+    android:padding="4dp"
+    android:elevation="8dp"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id="@+id/btn_mic"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_mic"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Record"
+        android:padding="12dp"
+        android:scaleType="fitCenter" />
+
+    <ImageButton
+        android:id="@+id/btn_paste"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_paste"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Copy to clipboard"
+        android:padding="12dp"
+        android:scaleType="fitCenter" />
+
+</LinearLayout>
