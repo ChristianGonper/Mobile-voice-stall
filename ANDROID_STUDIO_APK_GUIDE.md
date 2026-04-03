@@ -43,7 +43,7 @@ If you do not have a keystore yet:
    - **Build > Generate Signed Bundle / APK...**
 2. Choose **APK** and click **Next**.
 3. Click **Create new...** and fill in:
-   - Keystore path
+   - Keystore path (Recommendation: Choose a secure location **outside** of the project folder)
    - Password
    - Key alias
    - Key password

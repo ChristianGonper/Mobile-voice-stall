@@ -117,16 +117,17 @@ class OverlayService : Service() {
         }
 
         val inflater = LayoutInflater.from(this)
-        overlayView = inflater.inflate(R.layout.overlay_bubble, null)
+        val view = inflater.inflate(R.layout.overlay_bubble, null)
+        overlayView = view
 
-        val micButton = overlayView!!.findViewById<ImageButton>(R.id.btn_mic)
-        val pasteButton = overlayView!!.findViewById<ImageButton>(R.id.btn_paste)
+        val micButton = view.findViewById<ImageButton>(R.id.btn_mic)
+        val pasteButton = view.findViewById<ImageButton>(R.id.btn_paste)
 
         micButton.setOnClickListener { onMicClicked(micButton) }
         pasteButton.setOnClickListener { onPasteClicked() }
 
         // Make the bubble draggable
-        overlayView!!.setOnTouchListener(object : View.OnTouchListener {
+        view.setOnTouchListener(object : View.OnTouchListener {
             private var isDragging = false
 
             override fun onTouch(v: View, event: MotionEvent): Boolean {
