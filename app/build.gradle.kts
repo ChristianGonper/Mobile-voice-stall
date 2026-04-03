@@ -14,10 +14,8 @@ val keystoreProperties = Properties().apply {
     }
 }
 
-val hasReleaseSigning = keystoreProperties["storeFile"] != null
-    && keystoreProperties["storePassword"] != null
-    && keystoreProperties["keyAlias"] != null
-    && keystoreProperties["keyPassword"] != null
+val hasReleaseSigning = listOf("storeFile", "storePassword", "keyAlias", "keyPassword")
+    .all(keystoreProperties::containsKey)
 
 android {
     namespace = "com.voicestall.mobile"
@@ -39,10 +37,10 @@ android {
     signingConfigs {
         create("release") {
             if (hasReleaseSigning) {
-                storeFile = file(keystoreProperties["storeFile"] as String)
-                storePassword = keystoreProperties["storePassword"] as String
-                keyAlias = keystoreProperties["keyAlias"] as String
-                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
             }
         }
     }
